@@ -20,6 +20,7 @@ const Foots = () => {
       Freelance Marketplace
       
     </p>
+    <p>Email: freelancer@practice.com</p>
   </aside>
   <nav>
     <h6 className="footer-title">Social</h6>
@@ -59,6 +60,27 @@ const Foots = () => {
       </a>
     </div>
   </nav>
+  <div className="p-4 max-w-4xl mx-auto">
+      <h1 className="text-2xl font-bold mb-4">Terms and Conditions</h1>
+
+      <p className="mb-4">
+        By using our platform, you agree to comply with these Terms and
+        Conditions. You must be at least 18 years old and use the platform
+        legally and responsibly.
+      </p>
+
+      
+
+      <h2 className="text-xl font-semibold mt-4 mb-2">Freelancer & Client Responsibilities</h2>
+      <ul className="list-disc ml-6 mb-2">
+        <li>Freelancers must deliver quality work on time.</li>
+        <li>Clients must pay promptly and communicate clearly.</li>
+      </ul>
+
+      
+
+
+  </div>
 </footer>
     </div>
   )
