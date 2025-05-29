@@ -5,17 +5,20 @@ import Foots from '../components/Foots'
 
 const MainLayout = () => {
   return (
-    <div>
-      <header>
-       <Header></Header>
-      </header>
-      <main className='max-w-[1200px] mx-auto'>
-        <Outlet></Outlet>
-      </main>
-      <footer>
-        <Foots></Foots>
-      </footer>
-    </div>
+  <div className="flex flex-col min-h-screen">
+  <header>
+    <Header />
+  </header>
+
+  <main className="flex-grow max-w-[1200px] mx-auto w-full">
+    <Outlet />
+  </main>
+
+  <footer>
+    <Foots />
+  </footer>
+</div>
+
   )
 }
 

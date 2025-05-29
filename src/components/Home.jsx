@@ -29,6 +29,11 @@ const Home = () => {
   
 </div>
 
+{/* Featured */}
+<div>
+
+
+</div>
 {/* popular */}
     <h1 className='font-bold text-3xl text-center my-7 '>Popular Services</h1>
 <div className='text-white grid grid-cols-2 md:grid-cols-3 '>

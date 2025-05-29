@@ -16,6 +16,7 @@ import Auth from './layouts/Auth.jsx';
 import Login from './components/Login.jsx';
 import Register from './components/Register.jsx';
 import Home from './components/Home.jsx';
+import TaskDetails from './components/TaskDetails.jsx';
 
 let router = createBrowserRouter([
   {
@@ -24,7 +25,12 @@ let router = createBrowserRouter([
     children:[
       {index:true,Component:Home},
       {path:'addtask', Component:AddTask},
-      {path:'browsetask', Component:BrowseTask},
+      {path:'browsetask', Component:BrowseTask,
+        loader:()=>fetch('http://localhost:3000/addtask')
+      },
+      {path:'taskdetails/:id', Component:TaskDetails,
+        loader:({params})=>fetch(`http://localhost:3000/addtask/${params.id}`)
+      },
       {path:'mypostedtask', Component:MyTask},
     ]
   },
