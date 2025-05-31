@@ -20,6 +20,7 @@ import TaskDetails from './components/TaskDetails.jsx';
 import AuthProvider from './context/AuthProvider.jsx';
 import NotFound from './components/NotFound.jsx';
 import PrivateRoute from './Routes/PrivateRoute.jsx';
+import Update from './components/Update.jsx';
 
 let router = createBrowserRouter([
   {
@@ -31,10 +32,16 @@ let router = createBrowserRouter([
       {path:'browsetask', Component:BrowseTask,
         loader:()=>fetch('http://localhost:3000/addtask')
       },
-      {path:'taskdetails/:id', Component:TaskDetails,
+      {path:'taskdetails/:id', element:<PrivateRoute><TaskDetails></TaskDetails></PrivateRoute>,
         loader:({params})=>fetch(`http://localhost:3000/addtask/${params.id}`)
       },
-      {path:'mypostedtask',element:<PrivateRoute><MyTask></MyTask></PrivateRoute>},
+      
+      {path:'mypostedtask',element:<PrivateRoute><MyTask></MyTask></PrivateRoute>,
+        loader:()=>fetch('http://localhost:3000/addtask')
+      },
+      {path:'update/:id', element:<PrivateRoute><Update></Update></PrivateRoute>,
+        loader:({params})=>fetch(`http://localhost:3000/addtask/${params.id}`)
+      },
     ]
   },
  {
