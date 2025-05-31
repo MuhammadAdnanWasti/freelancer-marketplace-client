@@ -1,7 +1,19 @@
-import React from 'react'
-import { Link, NavLink } from 'react-router'
+import React, { use } from 'react'
+import { Link, NavLink, useNavigate } from 'react-router'
+import { AuthContext } from '../context/AuthContext'
 
 const Header = () => {
+   const {user, signOutUser}=use(AuthContext)
+   const navigate=useNavigate()
+   const handleSignOut=() => { 
+  signOutUser()
+.then(()=>{
+  setTimeout(() => {  navigate('/')}, 100)
+
+}).catch(error=>{
+  console.log(error)
+})
+    }
   return (
     <div>
       <div className="navbar bg-[#e6f5f0] shadow-sm">
@@ -30,8 +42,25 @@ const Header = () => {
     </ul>
   </div>
   <div className="navbar-end">
+  {user ? 
+   <>
+  <div className="dropdown dropdown-end text-black">
+            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img alt="User Avatar" src={user.photoURL} />
+              </div>
+            </div>
+            <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+           
+             <li>Email:{user.email}</li>
+              <li><button onClick={handleSignOut}>Log Out</button></li>
+            </ul>
+          </div>
+    
+   </>:<>
    <Link className="btn " to='/auth/login'>Login</Link>
    <Link className="btn " to='/auth/register'>Register</Link>
+  </>}
   </div>
 </div>
     </div>

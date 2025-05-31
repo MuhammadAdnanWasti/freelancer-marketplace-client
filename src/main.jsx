@@ -17,6 +17,9 @@ import Login from './components/Login.jsx';
 import Register from './components/Register.jsx';
 import Home from './components/Home.jsx';
 import TaskDetails from './components/TaskDetails.jsx';
+import AuthProvider from './context/AuthProvider.jsx';
+import NotFound from './components/NotFound.jsx';
+import PrivateRoute from './Routes/PrivateRoute.jsx';
 
 let router = createBrowserRouter([
   {
@@ -24,14 +27,14 @@ let router = createBrowserRouter([
     Component:MainLayout,
     children:[
       {index:true,Component:Home},
-      {path:'addtask', Component:AddTask},
+      {path:'addtask', element:<PrivateRoute><AddTask></AddTask></PrivateRoute>},
       {path:'browsetask', Component:BrowseTask,
         loader:()=>fetch('http://localhost:3000/addtask')
       },
       {path:'taskdetails/:id', Component:TaskDetails,
         loader:({params})=>fetch(`http://localhost:3000/addtask/${params.id}`)
       },
-      {path:'mypostedtask', Component:MyTask},
+      {path:'mypostedtask',element:<PrivateRoute><MyTask></MyTask></PrivateRoute>},
     ]
   },
  {
@@ -51,11 +54,13 @@ Component:Register
   
   {
     path: "/*",
-    element:<h1 className="text-red-700 text-3xl">Error 404</h1>
+    Component:NotFound
   }
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+   <AuthProvider>
+     <RouterProvider router={router} />
+   </AuthProvider>
   </StrictMode>,
 )
