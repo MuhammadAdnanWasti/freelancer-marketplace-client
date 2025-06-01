@@ -81,7 +81,7 @@ body:JSON.stringify(newTask)
 
 
             <label className="label">Date</label>
-           <input type='date' name='date' className="input w-full"  />
+           <input type='date' name='date'  className="input w-full"  />
 
           </fieldset>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">

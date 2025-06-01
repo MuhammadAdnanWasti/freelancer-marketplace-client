@@ -1,6 +1,8 @@
 import React from 'react'
+import { useLoaderData } from 'react-router'
 
 const Home = () => {
+  const task=useLoaderData()
   return (
     <div>
         {/* banner */}
@@ -31,7 +33,43 @@ const Home = () => {
 
 {/* Featured */}
 <div>
+  <div>
+      <h1 className='font-bold text-3xl text-center my-5'>Featured Task</h1>
+      <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100 my-9">
+  <table className="table">
 
+    {/* head */}
+    <thead>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Catagory</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {/* row 1 */}
+      {
+        task.map((user,index)=> <tr key={user._id}>
+        <th>
+          {index+1}
+        </th>
+        <td>
+          {user.title}
+        </td>
+        <td>
+          {user.category}
+        </td>
+     
+         
+        
+      </tr>)
+     }
+     
+    </tbody>
+  </table>
+</div>
+    </div>
 
 </div>
 {/* popular */}
@@ -84,7 +122,7 @@ const Home = () => {
     </div>
 </div>
 
- <section className="bg-[#e6f5f0] py-12 px-6 md:px-16 rounded-lg my-9">
+ <section className=" py-12 px-6 md:px-16 rounded-lg my-9">
       <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
       
         <div className="max-w-xl">

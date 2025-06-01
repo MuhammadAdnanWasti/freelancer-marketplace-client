@@ -132,11 +132,11 @@ console.log(result.user)
 
           <button type="submit" className="w-full btn btn-primary">Register</button>
 
-          <div className="divider">or</div>
+          <div className="divider ">or</div>
 
           
 
-          <p className="text-sm text-center mt-6">
+          <p className="text-sm text-center text-primary mt-6">
             Already have an account?
             <Link to="/auth/login" className="text-purple-600 hover:underline ml-1">Login</Link>
           </p>

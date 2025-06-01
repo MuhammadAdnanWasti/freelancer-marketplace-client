@@ -1,9 +1,25 @@
-import React, { use } from 'react'
+import React, { use, useEffect, useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router'
 import { AuthContext } from '../context/AuthContext'
 
 const Header = () => {
    const {user, signOutUser}=use(AuthContext)
+    const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    // Load saved theme or default to light
+    const savedTheme = localStorage.getItem("theme") || "light";
+    document.documentElement.setAttribute("data-theme", savedTheme);
+    setTheme(savedTheme);
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    setTheme(newTheme);
+  };
+
    const navigate=useNavigate()
    const handleSignOut=() => { 
   signOutUser()
@@ -16,7 +32,7 @@ const Header = () => {
     }
   return (
     <div>
-      <div className="navbar bg-[#e6f5f0] shadow-sm">
+      <div className="navbar shadow-sm">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -42,9 +58,12 @@ const Header = () => {
     </ul>
   </div>
   <div className="navbar-end">
+    <button onClick={toggleTheme} className="btn btn-sm btn-outline">
+      {theme === "light" ? "🌙 Dark" : "☀️ Light"}
+    </button>
   {user ? 
    <>
-  <div className="dropdown dropdown-end text-black">
+  <div className="dropdown dropdown-end ">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
                 <img alt="User Avatar" src={user.photoURL} />

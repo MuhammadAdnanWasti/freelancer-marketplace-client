@@ -4,7 +4,7 @@ import { AuthContext } from '../context/AuthContext'
 import Swal from 'sweetalert2'
 
 const MyTask = () => {
-  const {user}=use(AuthContext)
+  const {user,bids,setBids}=use(AuthContext)
     const tasks=useLoaderData()
    const myTask=tasks.filter(users=> users.email===user.email)
  const [coffees, setCoffees]=useState(myTask)
@@ -74,9 +74,9 @@ Swal.fire({
         <td>
           {user.budget}
         </td>
-       <Link to={`/update/${user._id}`}> <button  className="btn bg-[#e6f5f0] btn-xs">Update</button></Link>
-        <button onClick={()=>{handleDelete(user._id)}}  className="btn bg-[#e6f5f0] btn-xs">Delete</button>
-       <Link to={`/taskdetails/${user._id}`}> <button  className="btn bg-[#e6f5f0] btn-xs">Bids</button></Link>
+       <Link to={`/update/${user._id}`}> <button  className="btn  btn-xs">Update</button></Link>
+        <button onClick={()=>{handleDelete(user._id)}}  className="btn btn-xs">Delete</button>
+        <button   className="btn  btn-xs">{bids}</button>
          
         
       </tr>)

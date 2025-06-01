@@ -27,7 +27,9 @@ let router = createBrowserRouter([
     path: "/",
     Component:MainLayout,
     children:[
-      {index:true,Component:Home},
+      {index:true,Component:Home,
+        loader:()=>fetch('http://localhost:3000/showtask')
+      },
       {path:'addtask', element:<PrivateRoute><AddTask></AddTask></PrivateRoute>},
       {path:'browsetask', Component:BrowseTask,
         loader:()=>fetch('http://localhost:3000/addtask')

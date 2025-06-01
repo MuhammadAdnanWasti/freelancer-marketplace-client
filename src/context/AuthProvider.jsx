@@ -6,6 +6,7 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({children}) => {
    const [user, setUser]=useState(null)
     const [loading, setLoading]=useState(true)
+    const [bids, setBids]=useState(0)
  const updatePro= (profile)=>{
   return updateProfile(auth.currentUser, profile)
  }
@@ -46,7 +47,9 @@ logIn,
 signOutUser,
 user,
 loading,
-updatePro
+updatePro,
+bids,
+setBids
     }
  return (
    <AuthContext value={userInfo}>

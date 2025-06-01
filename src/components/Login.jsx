@@ -72,7 +72,7 @@ navigate(location?.state || '/')
 
           
 
-          <p className="text-sm text-center mt-6">
+          <p className="text-sm text-primary text-center mt-6">
             Don't have an account?
             <Link to="/auth/register" className="text-purple-600 hover:underline ml-1">Register</Link>
           </p>

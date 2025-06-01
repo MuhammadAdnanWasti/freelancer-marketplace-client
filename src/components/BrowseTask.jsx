@@ -29,7 +29,7 @@ const task=useLoaderData()
         <td>
           {user.category}
         </td>
-       <Link to={`/taskdetails/${user._id}`}> <button  className="btn bg-[#e6f5f0] btn-xs">Details</button></Link>
+       <Link to={`/taskdetails/${user._id}`}> <button  className="btn  btn-xs">Details</button></Link>
          
         
       </tr>)
