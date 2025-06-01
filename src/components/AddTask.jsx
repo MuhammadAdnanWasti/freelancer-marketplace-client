@@ -8,7 +8,7 @@ import { AuthContext } from '../context/AuthContext';
 
 const AddTask = () => {
   const {user}=use(AuthContext)
-  
+  console.log(user.displayName)
    const handleAddTask= (e) => { 
     e.preventDefault();
     const formData=new FormData(e.target);

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useLoaderData } from 'react-router'
+import Hero from './Hero'
 
 const Home = () => {
   const task=useLoaderData()
@@ -30,7 +31,9 @@ const Home = () => {
   <a href="#item3" className="btn btn-xs">3</a>
   
 </div>
-
+<div>
+  <Hero></Hero>
+</div>
 {/* Featured */}
 <div>
   <div>
@@ -74,7 +77,7 @@ const Home = () => {
 </div>
 {/* popular */}
     <h1 className='font-bold text-3xl text-center my-7 '>Popular Services</h1>
-<div className='text-white grid grid-cols-2 md:grid-cols-3 '>
+<div className='text-white grid grid-cols-1 md:grid-cols-3 '>
     <div>
         <div className="card bg-green-700 w-96 shadow-sm">
   <figure className="px-10 pt-10">
