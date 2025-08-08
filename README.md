@@ -2,7 +2,7 @@ Freelancing Marketplace  Live link: https://freelancer-marketplace-86771.web.app
 
 
 <img src="https://i.ibb.co.com/3yJfNLdz/Project-3.png" alt="Banner" style="width:100%;" />
-# Overview:
+
 
 A full-featured MERN stack platform connecting clients with freelancers for small task-based work. Users can post tasks, bid on listings, and collaborate based on skills, deadlines, and budgets — all with real-time updates, secure authentication, and responsive design.
 
